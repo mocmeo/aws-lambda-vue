@@ -4,15 +4,16 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const app = express();
-
-// enhance your app security with Helmet
-app.use(helmet());
+const routes = require("./routes");
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("combined")); // log
 
-// start the server
+// enhance your app security with Helmet
+app.use(helmet());
+app.use("/micro-posts", routes);
+
 app.listen(8081, () => {
 	console.log("listening on port 8081");
 });
