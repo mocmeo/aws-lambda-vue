@@ -1,4 +1,5 @@
 import axios from "axios";
+import auth0Client from "./AuthService";
 
 const url = "http://localhost:8081/micro-posts/";
 
@@ -21,9 +22,13 @@ class MicroPostsService {
   }
 
   static insertMicroPost(text) {
-    return axios.post(url, {
-      text
-    });
+    return axios.post(
+      url,
+      { text },
+      {
+        headers: { Authorization: `Bearer ${auth0Client.getAccessToken()}` }
+      }
+    );
   }
 }
 

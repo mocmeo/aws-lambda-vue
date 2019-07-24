@@ -5,7 +5,7 @@ class Auth {
     this.auth0 = new auth0.WebAuth({
       // the following three lines MUST be updated
       domain: "lamngo.auth0.com",
-      audience: "https://lamngo.auth0.com/userinfo",
+      audience: "https://micro-blog-app",
       clientID: "eZX3QRnz3d0F4b3zngyZSmIg5htU9Ja1",
       redirectUri: "http://localhost:8080/callback",
       responseType: "token id_token",
@@ -56,7 +56,7 @@ class Auth {
   signOut() {
     // clear id token, profile, and expiration
     this.auth0.logout({
-      clientID: "<YOUR-AUTH0-CLIENT-ID>",
+      clientID: "eZX3QRnz3d0F4b3zngyZSmIg5htU9Ja1",
       returnTo: "http://localhost:8080/"
     });
   }
